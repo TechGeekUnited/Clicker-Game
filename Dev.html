@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clicker Game</title>
+</head>
+<body>
+  <h1>Clicker Game</h1>
+  <p>Money: <span id="money">0</span> monect</p>
+  <h2>Upgrades</h2>
+  <button id="clickUpgradeButton">Upgrade Click Value (Cost: <span id="clickUpgradeCost">10</span> monect)</button>
+  <button id="passiveUpgradeButton">Upgrade Passive Income (Cost: <span id="passiveIncomeUpgradeCost">50</span> monect)</button>
+
+  <script>
+    // Initialize variables
+    let money = 0;
+    let clickValue = 1;
+    let passiveIncome = 0;
+    let clickUpgradeCost = 10;
+    let passiveIncomeUpgradeCost = 50;
+
+    // Update money display
+    function updateMoneyDisplay() {
+      document.getElementById("money").innerText = money;
+      document.getElementById("clickUpgradeCost").innerText = clickUpgradeCost;
+      document.getElementById("passiveIncomeUpgradeCost").innerText = passiveIncomeUpgradeCost;
+    }
+
+    // Function to add passive income
+    function addPassiveIncome() {
+      money += passiveIncome;
+      updateMoneyDisplay();
+    }
+
+    // Click upgrade button event
+    document.getElementById("clickUpgradeButton").addEventListener("click", () => {
+      if (money >= clickUpgradeCost) {
+        money -= clickUpgradeCost;
+        clickUpgradeCost = Math.round(clickUpgradeCost * 1.25); // Increase cost by 1/4
+        clickValue += 1;
+        updateMoneyDisplay();
+      } else {
+        alert("Not enough monect to purchase this upgrade!");
+      }
+    });
+
+    // Passive upgrade button event
+    document.getElementById("passiveUpgradeButton").addEventListener("click", () => {
+      if (money >= passiveIncomeUpgradeCost) {
+        money -= passiveIncomeUpgradeCost;
+        passiveIncomeUpgradeCost = Math.round(passiveIncomeUpgradeCost * 1.25); // Increase cost by 1/4
+        passiveIncome += 1;
+        updateMoneyDisplay();
+      } else {
+        alert("Not enough monect to purchase this upgrade!");
+      }
+    });
+
+    // Add passive income every second if it's upgraded
+    setInterval(() => {
+      if (passiveIncome > 0) {
+        addPassiveIncome();
+      }
+    }, 1000);
+
+    // Click anywhere on the page event (except buttons)
+    document.documentElement.addEventListener("click", (e) => {
+      if (e.target.tagName !== "BUTTON" && clickValue > 0) {
+        money += clickValue;
+        updateMoneyDisplay();
+      }
+    });
+  </script>
+</body>
+</html>
