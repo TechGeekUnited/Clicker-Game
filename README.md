@@ -3,13 +3,10 @@ A Mini Clicker/Idle Game so simple because it is playable from a (Relatively) Sm
 
 # Permsision
 You can use this a much as you want in your game As Long as The Following HTML Is Included Somewhere on the page it is used.
-<pre>
-  ```html
-<div style="position: absolute;bottom: 10px;right: 10px;padding: 10px;">
-<p>Game Made With <a href="https://github.com/TechGeekUnited/Clicker-Game/tree/main">Clicker Game</a></p>
-</div>
-  ```
-</pre>
+```html
+<div style="position: absolute; bottom: 10px; right: 10px; padding: 10px;">
+  <p>Game Made With <a href="https://github.com/TechGeekUnited/Clicker-Game/tree/main">Clicker Game</a></p>
+</div>```
 
 # Warning
 only the min.html and Data url Min File are usally up to date!
