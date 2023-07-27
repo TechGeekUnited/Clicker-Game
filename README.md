@@ -6,7 +6,8 @@ You can use this a much as you want in your game As Long as The Following HTML I
 ```html
 <div style="position: absolute; bottom: 10px; right: 10px; padding: 10px;">
   <p>Game Made With <a href="https://github.com/TechGeekUnited/Clicker-Game/tree/main">Clicker Game</a></p>
-</div>```
+</div>
+```
 
 # Warning
 only the min.html and Data url Min File are usally up to date!
